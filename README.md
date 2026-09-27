@@ -43,4 +43,4 @@ Rollback: re-attach team2ndwind.com to the Vibe project in GHL and revert DNS. T
 
 ## Known follow-ups
 - Images still load from vibe.filesafe.space. Before deleting the Vibe project, move them into GHL Media Storage (or this repo) and update `config.json > img`.
-- Hybrid Coaching ($299) links to Book Free Consultation because no $299 payment link was found. Add the link when available.
+- Hybrid Coaching ($299) is sold through the T2W Fit Training App only; the Memberships page points to t2wfit.com.
