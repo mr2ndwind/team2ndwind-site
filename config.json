@@ -1,0 +1,52 @@
+{
+  "site_url": "https://team2ndwind.com",
+  "logo": "https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/6a1473a6069d64aa5d309431.png",
+  "og_image": "https://vibe.filesafe.space/1779062900362984589/assets/3290a338-ec76-4ab1-8dc4-66e56c2949af.png",
+  "img": "https://vibe.filesafe.space/1779062900362984589/",
+  "form_host": "https://links.team2ndwind.com",
+  "forms": {
+    "inquiry": "BpXKtCfymiNDViuXWVyi",
+    "resource": "rtwnhNCHKmknXpynDQdE",
+    "cancel": "",
+    "pause": "",
+    "referral": "",
+    "new_caney": "",
+    "community_rsvp": ""
+  },
+  "form_heights": {
+    "inquiry": 900,
+    "resource": 620,
+    "cancel": 1300,
+    "pause": 700,
+    "referral": 900,
+    "new_caney": 800,
+    "community_rsvp": 950
+  },
+  "booking": {
+    "intro": "NJ1RN0xz5z6dLWBtFJzh",
+    "inbody": "mXjWwh9VU0cQGmYkbhcX",
+    "consult": "AE8EeicYWDFNMx0wTzya"
+  },
+  "booking_links": {
+    "inbody": "https://links.team2ndwind.com/widget/bookings/t2w-inbody-scan",
+    "consult": "https://links.team2ndwind.com/widget/bookings/t2w-pt-consultations",
+    "intro": "https://links.team2ndwind.com/widget/bookings/t2w-free-trial-intro-session"
+  },
+  "pushpress_calendar": "https://team2ndwind.pushpress.com/landing/calendar",
+  "thorne": "https://www.thorne.com/u/t2wfit",
+  "phone_display": "918-918-3234",
+  "phone_tel": "+19189183234",
+  "email": "info@team2ndwind.com",
+  "facebook": "https://www.facebook.com/lockednfit",
+  "instagram": "https://www.instagram.com/t2wfitstudios",
+  "twitter": "https://www.twitter.com/team2ndwind",
+  "wellhub": "https://wellhub.com/en-us/search/partners/team2ndwind/",
+  "classpass": "https://classpass.com/studios/team-2nd-wind-broken-arrow",
+  "elite_url": "https://t2welite.com",
+  "app_url": "https://t2wfit.com",
+  "review_widget": "https://reputationhub.site/reputation/widgets/review_widget/KUaMUc8BxyxYui9dVFR1",
+  "map_embed": "https://www.google.com/maps?q=3074+N+Aspen+Ave+Ste+110,+Broken+Arrow,+OK+74012&output=embed",
+  "map_link": "https://maps.google.com/?q=3074+N+Aspen+Ave+Ste+110+Broken+Arrow+OK+74012",
+  "custom_domain": "",
+  "jotform_pause_cancel": "252755211236048"
+}

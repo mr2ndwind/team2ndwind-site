@@ -1,0 +1,47 @@
+title: Free Wellness Assessment | T2W Fit Broken Arrow, OK
+description: Take the free T2W Wellness Assessment in Broken Arrow, OK. Get a personalized fitness, nutrition, recovery, and performance recommendation in under 60 seconds.
+path: assessment/
+---
+<section class="page-hero"><div class="wrap">
+<span class="eyebrow">Free Wellness Assessment</span><h1>Find Your Starting Point</h1>
+<p class="lead">Take our 60-second wellness assessment to discover the right training, nutrition, and recovery plan for your goals.</p>
+<div class="btns"><a class="btn" href="#quiz">Start Assessment</a></div>
+</div></section>
+<section id="quiz"><div class="wrap">
+<div class="quiz" data-quiz>
+<span class="eyebrow" data-step>Step 1 of 2</span>
+<div data-q="1"><h2>What Is Your Primary Fitness Goal?</h2>
+<div class="opts">
+<button type="button" data-a="fat">Lose Fat &amp; Tone Up</button>
+<button type="button" data-a="strength">Build Strength &amp; Muscle</button>
+<button type="button" data-a="athlete">Improve Athletic Performance</button>
+<button type="button" data-a="health">Overall Health &amp; Longevity</button>
+<button type="button" data-a="recovery">Improve Recovery &amp; Mobility</button>
+</div></div>
+<div class="result" data-r="fat"><span class="eyebrow">Your Recommendation</span><h2>Team Sweat + Nutrition Guidance</h2><p class="lead">High-energy, coach-led training focused on cardiovascular health and fat loss, paired with nutrition support. Start with a free InBody scan so we can measure real progress.</p></div>
+<div class="result" data-r="strength"><span class="eyebrow">Your Recommendation</span><h2>Team Flex</h2><p class="lead">Strength-focused training designed to build lean muscle, increase strength, and improve overall power. New to lifting? We'll start you in Team Build to master the fundamentals.</p></div>
+<div class="result" data-r="athlete"><span class="eyebrow">Your Recommendation</span><h2>Athlete Performance (SPA)</h2><p class="lead">Speed, agility, power, and strength development for competitive athletes. Basketball players can also train with <a href="https://t2welite.com">T2W Elite</a>.</p></div>
+<div class="result" data-r="health"><span class="eyebrow">Your Recommendation</span><h2>Team Build or Personal Training</h2><p class="lead">A safe, coach-led foundation focused on movement quality and progressive strength, the best starting point for long-term health and healthy aging.</p></div>
+<div class="result" data-r="recovery"><span class="eyebrow">Your Recommendation</span><h2>Recovery-First Coaching</h2><p class="lead">We'll build your plan around mobility, sleep, hydration, and smart training volume. See our <a href="{{root}}recovery/">Recovery Center</a> for the full approach.</p></div>
+<div class="result" data-r="form"><h3 style="margin-top:24px">Get Your Personalized Plan</h3><p class="muted">Tell us where to send it. A coach will follow up within 1 business day with your recommendation and next steps.</p>{{form:inquiry}}
+<div class="btns"><a class="btn ghost sm" href="{{inbody}}" rel="noopener">Book Free InBody Scan</a><button type="button" class="btn ghost sm" data-restart style="text-transform:uppercase">Start Over</button></div></div>
+</div></div></section>
+<script>
+(function(){var q=document.querySelector('[data-quiz]');q.querySelectorAll('[data-a]').forEach(function(b){b.onclick=function(){
+q.querySelector('[data-q="1"]').style.display='none';q.querySelector('[data-step]').textContent='Step 2 of 2: Your Recommendation';
+q.querySelectorAll('.result').forEach(function(r){r.classList.toggle('show',r.dataset.r===b.dataset.a||r.dataset.r==='form')});
+q.scrollIntoView({behavior:'smooth'})}});
+q.querySelector('[data-restart]').onclick=function(){q.querySelectorAll('.result').forEach(function(r){r.classList.remove('show')});q.querySelector('[data-q="1"]').style.display='';q.querySelector('[data-step]').textContent='Step 1 of 2'}})();
+</script>
+<section class="band"><div class="wrap"><span class="eyebrow">Stop Guessing</span><h2>A Customized Roadmap</h2>
+<div class="grid g3" style="margin-top:24px">
+<div class="card accent"><h3>Personalized Plan</h3><p class="muted">Get a clear recommendation on which T2W program fits your lifestyle, goals, and schedule.</p></div>
+<div class="card accent"><h3>Data-Driven</h3><p class="muted">We use your input to suggest the right mix of training, nutrition, and recovery.</p></div>
+<div class="card accent"><h3>Actionable Steps</h3><p class="muted">Leave with a clear next step to start making progress immediately.</p></div>
+</div></div></section>
+<section><div class="wrap split">
+<div><span class="eyebrow">Track Real Progress</span><h2>Book Your Free InBody Scan</h2><p class="lead">The best assessment starts with accurate data. An InBody scan gives you a complete breakdown of your body composition, including muscle mass, body fat percentage, and hydration levels.</p>
+<div class="btns"><a class="btn" href="{{inbody}}" rel="noopener">Book Free InBody Scan</a><a class="btn ghost" href="{{root}}inbody/">Learn More</a></div></div>
+<div><span class="eyebrow">Frequently Asked Questions</span>{{faq:How long does the assessment take?|Is this really free?|What happens after I complete the assessment?}}</div>
+</div></section>
+{{cta:Ready to Train With Purpose?|Stop guessing and start progressing with a program built for your goals.}}

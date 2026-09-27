@@ -1,0 +1,44 @@
+{
+  "strength-training-tips": {
+    "title": "Free Strength Training Tips Guide", "category": "Strength Training", "lead_magnet": "Strength Training Tips",
+    "seo": "Free Strength Training Tips Guide | T2W Fit Broken Arrow",
+    "intro": "Whether you're a beginner or an experienced athlete, mastering the fundamentals of strength training is the key to unlocking your true potential.",
+    "bullets": ["The fundamentals of progressive overload", "Pro tips for proper form and lifting technique", "How to effectively structure your weekly workouts", "Essential recovery strategies for muscle growth"]
+  },
+  "fat-loss-tips": {
+    "title": "Free Fat Loss Tips Guide", "category": "Fat Loss", "lead_magnet": "Fat Loss Tips",
+    "seo": "Free Fat Loss Tips Guide | T2W Fit Broken Arrow",
+    "intro": "Frustrated with the scale? Discover the proven, no-nonsense strategies to jumpstart your metabolism and start losing fat consistently.",
+    "bullets": ["Proven strategies for sustainable fat loss", "The most common fat loss mistakes to avoid", "How to properly balance cardio and strength training", "Crucial mindset shifts for long-term success"]
+  },
+  "sustainable-nutrition-guide": {
+    "title": "Free Sustainable Nutrition Guide", "category": "Nutrition", "lead_magnet": "Sustainable Nutrition Guide",
+    "seo": "Free Sustainable Nutrition Guide | T2W Fit Broken Arrow",
+    "intro": "Stop dieting and start fueling. This guide breaks down the exact strategies we use with our clients to build healthy eating habits that last a lifetime.",
+    "bullets": ["Learn how to eat without restrictive diets", "Understand portion control and macronutrients", "Practical strategies for eating out and traveling", "Tips for building long-term, sustainable habits"]
+  },
+  "1-week-meal-plan": {
+    "title": "Free 1-Week Meal Plan", "category": "Nutrition", "lead_magnet": "Meal Plan",
+    "seo": "Free 1-Week Meal Plan | T2W Fit Broken Arrow",
+    "intro": "Take the guesswork out of your nutrition with our complete 7-day meal plan. Designed for busy adults and athletes who want to fuel performance and lose fat without living in the kitchen.",
+    "bullets": ["7 days of easy-to-prep, delicious meals", "Complete grocery shopping lists to save time", "Simple recipes designed for busy schedules", "Balanced macronutrients to fuel your workouts"]
+  },
+  "client-cookbook": {
+    "title": "Free Client Cookbook", "category": "Nutrition", "lead_magnet": "Client Cookbook",
+    "seo": "Free Client Cookbook | T2W Fit Broken Arrow",
+    "intro": "Eating healthy doesn't have to be boring. Get access to the exact recipes our T2W Fit Studio members use to stay lean, strong, and satisfied.",
+    "bullets": ["High-protein, delicious, and easy recipes", "Quick 30-minute meals for busy weeknights", "Healthy breakfast, lunch, and dinner options", "Smart snack ideas to crush your cravings"]
+  },
+  "7-rules-to-preventing-injury": {
+    "title": "Free Injury Prevention Guide", "category": "Recovery", "lead_magnet": "Injury Prevention",
+    "seo": "Free Injury Prevention Guide | T2W Fit Broken Arrow",
+    "intro": "You can't train if you're hurt. Learn the 7 non-negotiable rules for keeping your body healthy, mobile, and ready to perform at its best.",
+    "bullets": ["Essential warm-up routines to prime your body", "Mobility exercises for key joints and muscles", "How to recognize the early signs of overtraining", "Sleep and hydration protocols for elite recovery"]
+  },
+  "at-home-7-day-workout": {
+    "title": "Free At-Home 7-Day Workout", "category": "Fitness", "lead_magnet": "At Home Workout",
+    "seo": "Free At-Home 7-Day Workout | T2W Fit Broken Arrow",
+    "intro": "No gym? No problem. Keep your momentum going with this intense, effective 7-day workout plan you can do right in your living room.",
+    "bullets": ["Zero equipment needed routines", "Full-body conditioning and strength focus", "Quick, effective 20-30 minute daily sessions", "Clear instructions for all fitness levels"]
+  }
+}
