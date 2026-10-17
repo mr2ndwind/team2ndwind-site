@@ -32,6 +32,11 @@ ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "docs"
 CFG = json.loads((ROOT / "config.json").read_text())
 SITE_URL = CFG["site_url"]
+IMG_MAP = CFG.get("img_map", {})
+
+def img_url(p):
+    """Resolve a content image path to its hosted URL (GHL Media Storage map, falls back to legacy base)."""
+    return IMG_MAP.get(p) or (CFG["img"] + p)
 FAQ = json.loads((ROOT / "content" / "faq.json").read_text())
 RESOURCES = json.loads((ROOT / "content" / "resources.json").read_text())
 
@@ -111,7 +116,7 @@ def faq_block(spec):
 
 def success_strip():
     return '<div class="people">' + "".join(
-        f'<div class="person"><img src="{CFG["img"]}{src}" alt="{n}, T2W member" loading="lazy"><h3>{n}</h3><p>{t}</p></div>'
+        f'<div class="person"><img src="{img_url(src)}" alt="{n}, T2W member" loading="lazy"><h3>{n}</h3><p>{t}</p></div>'
         for n, src, t in PEOPLE) + "</div>"
 
 
@@ -178,7 +183,7 @@ def md_to_html(md):
         elif line.startswith("![") and "](" in line:
             flush()
             alt, src = re.match(r"!\[(.*?)\]\((.*?)\)", line).groups()
-            src = CFG["img"] + src if not src.startswith("http") else src
+            src = img_url(src) if not src.startswith("http") else src
             out.append(f'<img src="{esc(src)}" alt="{esc(alt)}" loading="lazy" style="border-radius:10px;margin:24px 0">')
         elif line.startswith("- "):
             if para:
@@ -316,7 +321,7 @@ def render_tokens(body):
     body = re.sub(r"\{\{stacks:([a-z0-9,-]+)\}\}", lambda m: stacks(m.group(1)), body)
     body = re.sub(r"\{\{resources:([a-z0-9,-]+)\}\}", lambda m: resource_tiles(m.group(1)), body)
     body = re.sub(r"\{\{cta:(.+?)\}\}", lambda m: cta_band(m.group(1)), body)
-    body = re.sub(r"\{\{img:(.+?)\}\}", lambda m: CFG["img"] + m.group(1), body)
+    body = re.sub(r"\{\{img:(.+?)\}\}", lambda m: img_url(m.group(1)), body)
     body = body.replace("{{success}}", success_strip()).replace("{{visit}}", visit_block()).replace("{{reviews}}", reviews())
     body = (body.replace("{{inbody}}", CFG["booking_links"]["inbody"]).replace("{{consult}}", CFG["booking_links"]["consult"])
             .replace("{{phone}}", CFG["phone_display"]).replace("{{tel}}", CFG["phone_tel"]))
@@ -328,7 +333,7 @@ def render_tokens(body):
 
 
 def post_card(a):
-    img = f'<img src="{CFG["img"]}{a["image"]}" alt="" loading="lazy">' if a.get("image") else ""
+    img = f'<img src="{img_url(a["image"])}" alt="" loading="lazy">' if a.get("image") else ""
     return (f'<a class="post-card" data-c="{slugify(a["category"])}" href="{{{{root}}}}blog/{a["slug"]}/" style="padding:0;overflow:hidden">'
             f'{img}<div style="padding:22px;display:flex;flex-direction:column;flex:1">'
             f'<span class="meta">{esc(a["category"])} &middot; {esc(a["date"])}</span>'
@@ -355,7 +360,7 @@ def build():
         guide = RESOURCES.get(g) if g else None
         guide_box = (f'<div class="card accent" style="margin:28px 0"><span class="eyebrow">Free Guide</span><h3>{esc(guide["title"])}</h3>'
                      f'<p class="muted">{esc(guide["intro"])}</p><a class="btn" href="{{{{root}}}}resources/{g}/">Download the Free Guide</a></div>') if guide else ""
-        img = f'<img src="{CFG["img"]}{a["image"]}" alt="{esc(a["title"])}" style="border-radius:10px;margin-bottom:28px">' if a.get("image") else ""
+        img = f'<img src="{img_url(a["image"])}" alt="{esc(a["title"])}" style="border-radius:10px;margin-bottom:28px">' if a.get("image") else ""
         body = f"""<section class="page-hero"><div class="wrap article">
 <div class="crumbs"><a href="{{{{root}}}}">Home</a> / <a href="{{{{root}}}}blog/">Blog</a> / <a href="{{{{root}}}}blog/category/{slugify(a['category'])}/">{esc(a['category'].title())}</a></div>
 <span class="eyebrow">{esc(a['category'])}</span><h1 style="font-size:clamp(2rem,4.6vw,3.2rem)">{esc(a['title'])}</h1>
@@ -372,7 +377,7 @@ def build():
                   "publisher": {"@type": "Organization", "name": "Team 2nd Wind", "logo": {"@type": "ImageObject", "url": CFG["logo"]}},
                   "description": a["description"]}
         if a.get("image"):
-            schema["image"] = CFG["img"] + a["image"]
+            schema["image"] = img_url(a["image"])
         body, _ = render_tokens(body)
         urls.append(layout(a["seo"], a["seo_description"], f"blog/{a['slug']}/", body, active="blog/", schema=schema))
 
