@@ -337,6 +337,7 @@ def write_ghl_snippet(page, path, root, noindex):
     body = re.sub(r'<script src="https://cdn\.jotfor\.ms/[^"]*"></script>', '', body)
     body = re.sub(r'<script>window\.jotformEmbedHandler[^<]*</script>', '', body)
     body = re.sub(r'id="JotFormIFrame-(\d+)"', r'id="t2w-jf-\1"', body)
+    body = re.sub(r'(<iframe id="t2w-jf-(\d+)"[^>]*></iframe>)', lambda m: m.group(1) + '<script>(function(){var f=document.getElementById("t2w-jf-' + m.group(2) + '");if(!f)return;function fx(){if(f.style.visibility==="hidden"||f.style.position==="absolute"){f.style.cssText="width:100%;height:1600px;border:0;display:block"}}fx();new MutationObserver(fx).observe(f,{attributes:true,attributeFilter:["style"]})})();</script>', body)
     snippet = (f'{fonts}\n<style>\n{css}\n</style>\n'
                f'<div class="t2w-ghl" style="background:#0A0A0B">\n{body}\n</div>\n')
     name = slugify(path) if path else "home"
