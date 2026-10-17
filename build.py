@@ -315,7 +315,7 @@ b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAtt
 
 def write_ghl_snippet(page, path, root, noindex):
     """Self-contained snippet for a GHL Custom Code element (one per page, in docs/_ghl/)."""
-    if noindex:
+    if noindex and not path.strip('/') in ('pause','cancel'):
         return
     css = (ROOT / "src" / "site.css").read_text()
     body = re.search(r"<body>(.*)</body>", page, re.S).group(1)
