@@ -73,7 +73,7 @@ def form_embed(spec):
         return ('<div class="form-pending"><p><strong>This form is moving to our new system.</strong></p>'
                 f'<p class="muted">In the meantime, call or text <a href="tel:{CFG["phone_tel"]}">{CFG["phone_display"]}</a> '
                 f'or email <a href="mailto:{CFG["email"]}">{CFG["email"]}</a> and our team will take care of you.</p>'
-                '<a class="btn" href="{{root}}contact/">Contact Our Team</a></div>')
+                '<a class="btn" href="{{root}}contact-us/">Contact Our Team</a></div>')
     h = CFG["form_heights"].get(key, 900)
     src = f'{CFG["form_host"]}/widget/form/{fid}' + (f"?{query}" if query else "")
     return (f'<div class="form-box" style="min-height:{h}px"><iframe src="{esc(src)}" id="inline-{fid}" '
@@ -228,7 +228,7 @@ def layout(title, desc, path, body, active=None, schema=None, noindex=False):
                 ("Corporate Wellness", "corporate-wellness/")]
     nav = (dd("Programs", [("Start Here", "start/")] + programs) + link("Memberships", "memberships/")
            + link("Schedule", "schedule/") + dd("Wellness", wellness) + link("Community", "community/")
-           + link("Blog", "blog/") + link("About", "about/") + link("Contact", "contact/"))
+           + link("Blog", "blog/") + link("About", "about/") + link("Contact", "contact-us/"))
     schemas = schema if isinstance(schema, list) else ([schema] if schema else [])
     ld = "".join(f'<script type="application/ld+json">{json.dumps(s)}</script>' for s in schemas)
     robots = '<meta name="robots" content="noindex,follow">' if noindex else ""
@@ -287,8 +287,8 @@ def layout(title, desc, path, body, active=None, schema=None, noindex=False):
 <li><a href="{root}member-hub/">Member Hub</a></li>
 <li><a href="{root}community/">T2W Community</a></li>
 <li><a href="{root}refer/">Refer &amp; Earn</a></li>
-<li><a href="{root}pause/">Pause Membership</a></li>
-<li><a href="{root}cancel/">Cancel Membership</a></li>
+<li><a href="{root}pause-membership/">Pause Membership</a></li>
+<li><a href="{root}cancel-membership/">Cancel Membership</a></li>
 <li><a href="{root}new-caney/">New Caney, TX &mdash; Coming Soon</a></li>
 <li><a href="tel:{CFG['phone_tel']}">{CFG['phone_display']}</a></li>
 <li>3074 N Aspen Ave, Suite 110<br>Broken Arrow, OK 74012</li>
@@ -315,7 +315,7 @@ b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAtt
 
 def write_ghl_snippet(page, path, root, noindex):
     """Self-contained snippet for a GHL Custom Code element (one per page, in docs/_ghl/)."""
-    if noindex and not path.strip('/') in ('pause','cancel'):
+    if noindex and not path.strip('/') in ('pause-membership','cancel-membership'):
         return
     css = (ROOT / "src" / "site.css").read_text()
     body = re.search(r"<body>(.*)</body>", page, re.S).group(1)
