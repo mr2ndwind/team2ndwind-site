@@ -1,0 +1,325 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Team 2nd Wind / T2W Fit Studio — site styles. Brand: amber #FEA82F on black. (--red is the brand accent variable name, kept for parity with the Elite site.) */
+:root{
+  --red:#FEA82F; --red-dark:#E8901A; --black:#0A0A0B; --ink:#141416; --panel:#1B1B1F;
+  --line:#2C2C31; --gray:#9A9AA3; --light:#D9D9DE; --white:#FFFFFF; --paper:#F4F4F6;
+  --head:'Oswald',Impact,'Arial Narrow',sans-serif; --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --wrap:1180px; --r:10px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--light);font:16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--white)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{font-family:var(--head);color:var(--white);text-transform:uppercase;letter-spacing:.02em;line-height:1.08;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,6vw,4.6rem)} h2{font-size:clamp(1.8rem,3.6vw,2.7rem)} h3{font-size:1.35rem}
+p{margin:0 0 1em}
+.eyebrow{font:600 .8rem/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block}
+.lead{font-size:1.15rem;color:var(--light);max-width:720px}
+.muted{color:var(--gray)}
+.red{color:var(--red)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:6px;font:700 .9rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--red);background:var(--red);color:var(--white);transition:background .15s,transform .15s;cursor:pointer}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-1px)}
+.btn.ghost{background:transparent;border-color:var(--white)}
+.btn.ghost:hover{background:var(--white);color:var(--black)}
+.btn.sm{padding:10px 16px;font-size:.78rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* Header */
+.top{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo img{height:46px;width:auto}
+.nav{display:flex;align-items:center;gap:16px}
+.nav a{color:var(--light);text-decoration:none;font:600 .8rem/1 var(--body);letter-spacing:.04em;text-transform:uppercase}
+.nav a:hover,.nav a.on{color:var(--white)}
+.nav a.on{box-shadow:inset 0 -2px 0 var(--red);padding-bottom:6px}
+.nav .btn{color:var(--white);box-shadow:none;padding:11px 16px}
+.nav a,.dd-btn{white-space:nowrap}
+.dd{position:relative}
+.dd-btn{background:none;border:0;color:var(--light);font:600 .8rem/1 var(--body);letter-spacing:.04em;text-transform:uppercase;cursor:pointer;padding:0}
+.dd-btn::after{content:"";display:inline-block;margin-left:6px;border:4px solid transparent;border-top-color:currentColor;vertical-align:-2px}
+.dd-btn.on{color:var(--white);box-shadow:inset 0 -2px 0 var(--red);padding-bottom:6px}
+.dd-menu{display:none;position:absolute;top:100%;left:-18px;padding:14px 0 8px;min-width:230px}
+.dd-menu::before{content:"";position:absolute;inset:8px 0 0;background:var(--ink);border:1px solid var(--line);border-radius:8px;z-index:-1}
+.dd-menu a{display:block;padding:11px 18px}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{display:block}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--white);border-radius:6px;padding:9px 12px;font:600 .8rem var(--body);letter-spacing:.08em}
+@media (max-width:1180px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px 20px 20px}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .nav a.on{box-shadow:none;color:var(--red)}
+  .nav .btn{margin-top:14px;border-bottom:0}
+  .dd-btn{display:none}
+  .dd-menu{display:block;position:static;padding:0;min-width:0}
+  .dd-menu::before{display:none}
+  .dd-menu a{padding:14px 0}
+}
+
+/* Sections */
+section{padding:84px 0}
+.band{background:var(--ink)}
+.paper{background:var(--paper);color:#2B2B30}
+.paper h1,.paper h2,.paper h3{color:var(--black)}
+.hero{position:relative;padding:110px 0 96px;overflow:hidden;background:
+  radial-gradient(900px 500px at 85% 20%,rgba(254,168,47,.22),transparent 60%),
+  linear-gradient(180deg,#0A0A0B 0%,#121214 100%)}
+.hero::after{content:"";position:absolute;right:-120px;top:-60px;width:520px;height:520px;border:2px solid rgba(254,168,47,.35);border-radius:50%}
+.hero::before{content:"";position:absolute;right:40px;bottom:-160px;width:360px;height:360px;border:2px solid rgba(255,255,255,.06);border-radius:50%}
+.hero .wrap{position:relative;z-index:1}
+.hero h1 span{color:var(--red)}
+.page-hero{padding:84px 0 64px;background:radial-gradient(700px 360px at 90% 0%,rgba(254,168,47,.2),transparent 60%),var(--black);border-bottom:1px solid var(--line)}
+
+/* Grids & cards */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr} section{padding:64px 0}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.card h3{margin-bottom:.4em}
+.card.accent{border-top:3px solid var(--red)}
+.card .btn{margin-top:10px}
+.paper .card{background:var(--white);border-color:#E3E3E8}
+.num{font:700 2.6rem/1 var(--head);color:var(--red);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;padding:0;list-style:none}
+.chips li{border:1px solid var(--line);background:var(--panel);padding:9px 14px;border-radius:999px;font-size:.9rem;color:var(--white)}
+.checks{list-style:none;padding:0;margin:0}
+.checks li{position:relative;padding:10px 0 10px 30px;border-bottom:1px solid var(--line)}
+.checks li::before{content:"";position:absolute;left:0;top:16px;width:14px;height:14px;background:var(--red);clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0,43% 62%)}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+
+/* CTA band */
+.cta{background:linear-gradient(120deg,var(--red) 0%,#E8901A 100%);padding:64px 0;text-align:center}
+.cta h2{margin-bottom:.3em}
+.cta p{color:#1A1206;max-width:640px;margin:0 auto 22px}
+.cta .btn{background:var(--white);color:var(--black);border-color:var(--white)}
+.cta .btn:hover{background:var(--black);color:var(--white);border-color:var(--black)}
+
+/* Forms */
+.form-box{background:var(--white);border-radius:var(--r);padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.form-box iframe{width:100%;border:0;min-height:640px;display:block;border-radius:6px}
+.form-pending{background:var(--panel);border:1px dashed var(--red);border-radius:var(--r);padding:28px;text-align:center}
+
+/* Schedule */
+.sched{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.sched div{display:flex;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--panel)}
+.sched div:last-child{border-bottom:0}
+.sched strong{color:var(--white)}
+
+/* Blog */
+.post-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;text-decoration:none;transition:border-color .15s,transform .15s}
+.post-card:hover{border-color:var(--red);transform:translateY(-2px)}
+.post-card .meta{font:600 .72rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.post-card h3{font-size:1.2rem;margin-bottom:.5em}
+.post-card p{color:var(--gray);font-size:.95rem;margin:0 0 16px;flex:1}
+.post-card span.more{font:700 .78rem/1 var(--body);letter-spacing:.1em;color:var(--white)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.filters button{background:transparent;border:1px solid var(--line);color:var(--light);border-radius:999px;padding:9px 16px;font:600 .78rem var(--body);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.filters button.on,.filters button:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.article{max-width:760px;margin:0 auto}
+.article h2{font-size:1.7rem;margin-top:1.6em}
+.article h3{font-size:1.2rem;margin-top:1.4em;text-transform:none;letter-spacing:0;font-family:var(--body);font-weight:700}
+.article ul{padding-left:0;list-style:none}
+.article li{position:relative;padding:6px 0 6px 24px}
+.article li::before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;background:var(--red);border-radius:2px}
+.callout{border-left:4px solid var(--red);background:var(--panel);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin:28px 0}
+.callout b{display:block;font:700 .75rem/1 var(--body);letter-spacing:.16em;color:var(--red);margin-bottom:10px}
+.callout.key{background:#1E1608;border-left-color:var(--white)}
+.callout.key b{color:var(--white)}
+.post-meta{color:var(--gray);font-size:.9rem;margin-top:14px}
+.disclaimer{font-size:.85rem;color:var(--gray);border-top:1px solid var(--line);padding-top:18px;margin-top:40px}
+.crumbs{font-size:.82rem;color:var(--gray);margin-bottom:18px}
+.crumbs a{color:var(--gray);text-decoration:none}.crumbs a:hover{color:var(--white)}
+
+/* Roster */
+.player{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.player .no{position:absolute;right:14px;top:6px;font:700 3.4rem/1 var(--head);color:rgba(254,168,47,.25)}
+.player h3{font-size:1.25rem;margin-bottom:4px}
+.player dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0 0;font-size:.9rem}
+.player dt{color:var(--gray)} .player dd{margin:0;color:var(--white)}
+
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:700;color:var(--white);list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--red);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--light)}
+
+/* Video */
+.video{position:relative;padding-top:56.25%;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Footer */
+footer{background:#070708;border-top:1px solid var(--line);padding:60px 0 28px;font-size:.92rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px}
+@media (max-width:900px){.foot{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot{grid-template-columns:1fr}}
+footer h4{font-size:1rem;margin-bottom:14px}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{margin:0 0 9px}
+footer a{color:var(--light);text-decoration:none}
+footer a:hover{color:var(--red)}
+.legal{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--gray);font-size:.82rem}
+.tag{font:600 .9rem var(--head);letter-spacing:.14em;color:var(--red)}
+
+/* ---- T2W Fit Studio overrides & additions ---- */
+.btn{color:var(--black)}
+.btn:hover{color:var(--black)}
+.btn.ghost{color:var(--white)}
+.nav .btn{color:var(--black)}
+.cta h2{color:var(--black)} .cta p{color:#1A1206}
+.cta .btn{background:var(--black);color:var(--white);border-color:var(--black)}
+.cta .btn:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+.cta .btn.ghost{background:transparent;color:var(--black);border-color:var(--black)}
+.filters button.on,.filters button:hover{color:var(--black)}
+.logo img{height:52px}
+.hero{padding:120px 0 104px}
+.hero-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28}
+/* image cards */
+.icard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.icard img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#111}
+.icard .in{padding:22px;display:flex;flex-direction:column;flex:1}
+.icard .in p{color:var(--gray);flex:1}
+.icard .in .btn{align-self:flex-start}
+/* pricing */
+.price{font:700 2.6rem/1 var(--head);color:var(--white)} .price small{font:500 .9rem var(--body);color:var(--gray)}
+.plan{position:relative}
+.plan .badge{position:absolute;top:-12px;right:18px;background:var(--red);color:var(--black);font:700 .7rem/1 var(--body);letter-spacing:.14em;padding:7px 10px;border-radius:4px}
+.plan ul{margin:16px 0}
+/* success strip */
+.people{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media (max-width:900px){.people{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.people{grid-template-columns:repeat(2,1fr)}}
+.person{text-align:center}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r);border:1px solid var(--line);margin-bottom:10px}
+.person h3{font-size:1.05rem;margin:0}
+.person p{font-size:.78rem;letter-spacing:.12em;color:var(--red);margin:4px 0 0;text-transform:uppercase}
+/* link tiles (resources / stacks) */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tile{display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;text-decoration:none;transition:border-color .15s}
+.tile:hover{border-color:var(--red)}
+.tile small{display:block;font:600 .7rem/1 var(--body);letter-spacing:.14em;color:var(--red);text-transform:uppercase;margin-bottom:8px}
+.tile b{color:var(--white);font-family:var(--head);text-transform:uppercase;letter-spacing:.02em;font-weight:500}
+.tile span{display:block;margin-top:8px;font-size:.78rem;color:var(--gray);letter-spacing:.1em}
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.steps>div{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.steps>div::before{counter-increment:s;content:counter(s,decimal-leading-zero);display:block;font:700 2rem/1 var(--head);color:var(--red);margin-bottom:10px}
+.steps h3{font-size:1.05rem;margin:0}
+.steps p{color:var(--gray);font-size:.92rem;margin:8px 0 0}
+/* quiz */
+.quiz{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.quiz .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:18px}
+.quiz button{background:var(--ink);border:1px solid var(--line);color:var(--white);border-radius:8px;padding:16px;text-align:left;font:700 .9rem var(--body);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.quiz button:hover,.quiz button.on{border-color:var(--red);background:#1E1608}
+.quiz .result{display:none;margin-top:22px}
+.quiz .result.show{display:block}
+.map{border:0;width:100%;height:360px;border-radius:var(--r);filter:grayscale(.3)}
+.center{text-align:center} .center .lead{margin-left:auto;margin-right:auto} .center .btns{justify-content:center}
+.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+.embed{background:var(--white);border-radius:var(--r);overflow:hidden}
+.embed iframe{width:100%;border:0;display:block}
+.event{border-left:3px solid var(--red)}
+.event .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.event .tags span{font:600 .68rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--gray)}
+.legal-doc{max-width:820px;margin:0 auto}
+.legal-doc h2{font-size:1.4rem;margin-top:1.6em}
+
+</style>
+<div class="t2w-ghl" style="background:#0A0A0B">
+
+<header class="top"><div class="wrap">
+<a class="logo" href="https://team2ndwind.com/" aria-label="Team 2nd Wind home"><img src="https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/6a1473a6069d64aa5d309431.png" alt="T2W Fit Studio" width="140" height="52"></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">MENU</button>
+<nav class="nav" id="nav"><div class="dd"><button class="dd-btn" type="button">Programs</button><div class="dd-menu"><a href="https://team2ndwind.com/start/">Start Here</a><a href="https://team2ndwind.com/programs/">All Programs</a><a href="https://team2ndwind.com/athlete-performance/">Athlete Performance</a><a href="https://team2ndwind.com/youth-athlete-development/">Youth Athletes</a><a href="https://team2ndwind.com/family-membership/">Family Membership</a><a href="https://team2ndwind.com/wellhub-classpass/">Wellhub &amp; ClassPass</a></div></div><a href="https://team2ndwind.com/memberships/">Memberships</a><a href="https://team2ndwind.com/schedule/">Schedule</a><div class="dd"><button class="dd-btn on" type="button">Wellness</button><div class="dd-menu"><a href="https://team2ndwind.com/wellness/" class="on">Wellness Center</a><a href="https://team2ndwind.com/inbody/">InBody Scan</a><a href="https://team2ndwind.com/recovery/">Recovery</a><a href="https://team2ndwind.com/womens-health/">Women's Wellness</a><a href="https://team2ndwind.com/longevity/">Longevity</a><a href="https://team2ndwind.com/supplements/">Supplements</a><a href="https://team2ndwind.com/corporate-wellness/">Corporate Wellness</a></div></div><a href="https://team2ndwind.com/community/">Community</a><a href="https://team2ndwind.com/blog/">Blog</a><a href="https://team2ndwind.com/about/">About</a><a href="https://team2ndwind.com/contact/">Contact</a><a class="btn sm" href="https://team2ndwind.com/free-trial/">Start Free Trial</a></nav>
+</div></header>
+<main>
+<section class="page-hero"><div class="wrap">
+<span class="eyebrow">Women's Wellness</span><h1>Strong Looks Different on Every Woman.</h1>
+<p class="lead">Whether your goal is fat loss, strength, energy, confidence, recovery, or healthy aging, Team 2nd Wind provides coaching, accountability, body composition tracking, and wellness support every step of the way.</p>
+<div class="btns"><a class="btn" href="https://links.team2ndwind.com/widget/bookings/t2w-inbody-scan" rel="noopener">Book Free InBody Scan</a><a class="btn ghost" href="https://team2ndwind.com/assessment/">Take Wellness Assessment</a></div>
+</div></section>
+<section><div class="wrap"><span class="eyebrow">Why Women Strength Train</span><h2>The Foundation of Long-Term Health</h2>
+<div class="grid g3" style="margin-top:24px">
+<div class="card accent"><h3>Build Lean Muscle</h3><p class="muted">Shape and tone your body while building real strength.</p></div>
+<div class="card accent"><h3>Support Metabolism</h3><p class="muted">More muscle means a higher resting metabolic rate.</p></div>
+<div class="card accent"><h3>Improve Bone Health</h3><p class="muted">Resistance training increases bone density and helps prevent osteoporosis.</p></div>
+<div class="card accent"><h3>Increase Confidence</h3><p class="muted">Feel stronger and more capable in your daily life.</p></div>
+<div class="card accent"><h3>Improve Energy</h3><p class="muted">Better fitness translates to more energy throughout your day.</p></div>
+<div class="card accent"><h3>Healthy Aging</h3><p class="muted">Maintain independence, mobility, and vitality as you age.</p></div>
+</div></div></section>
+<section class="band"><div class="wrap split">
+<div><span class="eyebrow">InBody for Women</span><h2>Ditch the Scale</h2><p class="lead">Track the metrics that actually matter for your health, hormones, and body composition.</p>
+<ul class="checks"><li><strong>Body fat %:</strong> your true body composition beyond total weight</li><li><strong>Muscle mass:</strong> the lean tissue that drives metabolism and strength</li><li><strong>Hydration:</strong> water balance, which impacts recovery and energy</li><li><strong>Visceral fat:</strong> the internal fat that affects long-term health</li><li><strong>Progress trends:</strong> the real results of your consistency over time</li></ul>
+<div class="btns"><a class="btn" href="https://links.team2ndwind.com/widget/bookings/t2w-inbody-scan" rel="noopener">Book Your Scan</a></div></div>
+<div><span class="eyebrow">The 6 Pillars of Women's Wellness</span><ul class="chips"><li>Strength</li><li>Nutrition</li><li>Recovery</li><li>Hydration</li><li>Sleep</li><li>Community</li></ul>
+<h3 style="margin-top:32px">Your Wellness Roadmap</h3>
+<div class="steps"><div><h3>Complete InBody Scan</h3><p>Establish your baseline.</p></div><div><h3>Take Wellness Assessment</h3><p>Identify goals and habits.</p></div><div><h3>Join Recommended Program</h3><p>Train consistently with coaching.</p></div><div><h3>Support Recovery &amp; Nutrition</h3><p>Optimize habits and stack.</p></div><div><h3>Retest Every 4-6 Weeks</h3><p>Track and adjust.</p></div></div></div>
+</div></section>
+<section><div class="wrap"><span class="eyebrow">Recommended Programs</span><h2>Where to Start</h2>
+<div class="grid g3" style="margin-top:24px">
+<div class="card accent"><h3>Team Build</h3><p class="muted">A strong, safe fitness foundation and building confidence.</p></div>
+<div class="card accent"><h3>Team Sweat</h3><p class="muted">Cardiovascular health, metabolic conditioning, and sustainable fat loss.</p></div>
+<div class="card accent"><h3>Team Flex</h3><p class="muted">Strength-focused training to build lean muscle mass and bone density.</p></div>
+<div class="card accent"><h3>Personal Training</h3><p class="muted">1-on-1 coaching tailored to your specific body and goals.</p><a class="btn sm" href="https://links.team2ndwind.com/widget/bookings/t2w-pt-consultations" rel="noopener">Book Free Consultation</a></div>
+<div class="card accent"><h3>Studio Unlimited</h3><p class="muted">Unlimited Team Training plus the T2W Fit Training App and a monthly InBody scan.</p><a class="btn sm" href="https://team2ndwind.com/memberships/">See Memberships</a></div>
+</div></div></section>
+<section class="band"><div class="wrap"><span class="eyebrow">T2W Wellness Stacks</span><h2>Powered by Thorne</h2><div class="tiles"><a class="tile" href="https://www.thorne.com/u/t2wfit/stack/t2w-womens-performance" rel="noopener" target="_blank"><small>Thorne Stack</small><b>Women&#x27;s Performance</b><span>SHOP STACK &rarr;</span></a><a class="tile" href="https://www.thorne.com/u/t2wfit/stack/t2w-hormone-optimize" rel="noopener" target="_blank"><small>Thorne Stack</small><b>Hormone Optimize</b><span>SHOP STACK &rarr;</span></a><a class="tile" href="https://www.thorne.com/u/t2wfit/stack/t2w-sleep-stress" rel="noopener" target="_blank"><small>Thorne Stack</small><b>Sleep &amp; Stress</b><span>SHOP STACK &rarr;</span></a><a class="tile" href="https://www.thorne.com/u/t2wfit/stack/t2w-foundational-health" rel="noopener" target="_blank"><small>Thorne Stack</small><b>Foundational Health</b><span>SHOP STACK &rarr;</span></a></div></div></section>
+<section><div class="wrap article"><span class="eyebrow">Frequently Asked Questions</span><div class="faq"><details><summary>Is strength training safe for beginners?</summary><p>Absolutely. Our programs are coach-led, meaning we teach you proper form, modify movements to your ability, and progress you safely as you build confidence.</p></details><details><summary>How often should women complete InBody scans?</summary><p>We recommend scanning every 4-6 weeks to track your muscle mass, body fat percentage, and hydration levels accurately without obsessing over the daily scale.</p></details><details><summary>Can strength training improve metabolism?</summary><p>Yes! Building lean muscle mass increases your basal metabolic rate (BMR), meaning your body burns more calories at rest, making long-term fat loss more sustainable.</p></details><details><summary>What wellness stack is best for me?</summary><p>It depends on your goals. Women&#x27;s Performance is great for active individuals, while Hormone Optimize or Sleep &amp; Stress can help with recovery and balance. Take our Wellness Assessment for a personalized recommendation.</p></details><details><summary>Which T2W program should I start with?</summary><p>Team Build or Personal Training are excellent starting points for establishing a safe baseline, learning proper mechanics, and progressively building strength.</p></details></div></div></section>
+<section class="cta"><div class="wrap"><h2>Become Stronger. Healthier. More Confident.</h2><p>Join a community of women dedicated to long-term wellness and real results.</p><div class="btns" style="justify-content:center"><a class="btn" href="https://links.team2ndwind.com/widget/bookings/t2w-inbody-scan" rel="noopener">Book Free InBody Scan</a><a class="btn ghost" href="https://team2ndwind.com/assessment/">Take Wellness Assessment</a><a class="btn ghost" href="https://team2ndwind.com/memberships/">Explore Memberships</a></div></div></section>
+
+</main>
+<footer><div class="wrap">
+<div class="foot">
+<div><img src="https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/6a1473a6069d64aa5d309431.png" alt="T2W Fit Studio" width="150" height="56" style="height:56px;width:auto;margin-bottom:16px">
+<p class="muted">Train With Purpose. Show Up For Yourself. Build Your Second Wind.</p>
+<p class="tag">FIND YOUR 2ND WIND.</p>
+<a class="btn sm" href="https://team2ndwind.com/free-trial/">Claim 7-Day Free Trial</a></div>
+<div><h4>Train</h4><ul>
+<li><a href="https://team2ndwind.com/start/">Start Here</a></li>
+<li><a href="https://team2ndwind.com/programs/">Programs</a></li>
+<li><a href="https://team2ndwind.com/memberships/">Memberships</a></li>
+<li><a href="https://team2ndwind.com/schedule/">Schedule</a></li>
+<li><a href="https://team2ndwind.com/athlete-performance/">Athlete Performance</a></li>
+<li><a href="https://team2ndwind.com/youth-athlete-development/">Youth Athletes</a></li>
+<li><a href="https://team2ndwind.com/family-membership/">Family Membership</a></li>
+<li><a href="https://team2ndwind.com/results/">Results</a></li>
+<li><a href="https://team2ndwind.com/blog/">Blog</a> &middot; <a href="https://team2ndwind.com/about/">About</a> &middot; <a href="https://team2ndwind.com/faq/">FAQ</a></li>
+<li><a href="https://t2welite.com" rel="noopener">T2W Elite Basketball</a></li></ul></div>
+<div><h4>Wellness</h4><ul>
+<li><a href="https://team2ndwind.com/assessment/">Wellness Assessment</a></li>
+<li><a href="https://team2ndwind.com/inbody/">InBody Scan</a></li>
+<li><a href="https://team2ndwind.com/wellness/">Wellness Center</a></li>
+<li><a href="https://team2ndwind.com/recovery/">Recovery</a></li>
+<li><a href="https://team2ndwind.com/womens-health/">Women's Wellness</a></li>
+<li><a href="https://team2ndwind.com/longevity/">Longevity</a></li>
+<li><a href="https://team2ndwind.com/corporate-wellness/">Corporate Wellness</a></li>
+<li><a href="https://team2ndwind.com/supplements/">Supplements</a></li></ul></div>
+<div><h4>Members &amp; Contact</h4><ul>
+<li><a href="https://team2ndwind.com/member-hub/">Member Hub</a></li>
+<li><a href="https://team2ndwind.com/community/">T2W Community</a></li>
+<li><a href="https://team2ndwind.com/refer/">Refer &amp; Earn</a></li>
+<li><a href="https://team2ndwind.com/pause/">Pause Membership</a></li>
+<li><a href="https://team2ndwind.com/cancel/">Cancel Membership</a></li>
+<li><a href="https://team2ndwind.com/new-caney/">New Caney, TX &mdash; Coming Soon</a></li>
+<li><a href="tel:+19189183234">918-918-3234</a></li>
+<li>3074 N Aspen Ave, Suite 110<br>Broken Arrow, OK 74012</li>
+<li><a href="https://www.facebook.com/lockednfit" rel="noopener">Facebook</a> &middot; <a href="https://www.instagram.com/t2wfitstudios" rel="noopener">Instagram</a></li></ul></div>
+</div>
+<div class="legal"><span>&copy; <span id="yr">2026</span> Team 2nd Wind LLC | T2W Fit Studio. All rights reserved.</span>
+<span><a href="https://team2ndwind.com/faq/">FAQ</a> &middot; <a href="https://team2ndwind.com/terms-of-use/">Terms of Use</a> &middot; <a href="https://team2ndwind.com/privacy-policy/">Privacy Policy</a></span></div>
+</div></footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+</script>
+<script src="https://links.team2ndwind.com/js/form_embed.js"></script>
+
+</div>

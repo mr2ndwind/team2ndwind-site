@@ -309,7 +309,36 @@ b.addEventListener('click',function(){{var o=n.classList.toggle('open');b.setAtt
     dest = OUT / path / "index.html" if path else OUT / "index.html"
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(page)
+    write_ghl_snippet(page, path, root, noindex)
     return None if noindex else canon
+
+
+def write_ghl_snippet(page, path, root, noindex):
+    """Self-contained snippet for a GHL Custom Code element (one per page, in docs/_ghl/)."""
+    if noindex:
+        return
+    css = (ROOT / "src" / "site.css").read_text()
+    body = re.search(r"<body>(.*)</body>", page, re.S).group(1)
+    fonts = re.search(r'<link href="https://fonts.googleapis.com[^>]+>', page).group(0)
+
+    def fix(m):
+        attr, val = m.group(1), m.group(2)
+        if re.match(r"(https?:|tel:|mailto:|#|//|data:)", val):
+            return m.group(0)
+        v = val
+        while v.startswith("../"):
+            v = v[3:]
+        if v in ("./", ""):
+            v = ""
+        return f'{attr}="{SITE_URL}/{v}"'
+
+    body = re.sub(r'(href|src)="([^"]*)"', fix, body)
+    snippet = (f'{fonts}\n<style>\n{css}\n</style>\n'
+               f'<div class="t2w-ghl" style="background:#0A0A0B">\n{body}\n</div>\n')
+    name = slugify(path) if path else "home"
+    d = OUT / "_ghl"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / f"{name}.html").write_text(snippet)
 
 
 def render_tokens(body):
