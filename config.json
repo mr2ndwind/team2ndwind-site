@@ -82,5 +82,41 @@
     "attachments/c362cc2f-11b0-4a03-88e9-6ac3c02bdca5.png": "https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/7a9c7ad5-7e65-4867-b543-f59920879a16.png",
     "attachments/c72dee89-de41-4c14-beb3-8b666d262d81.png": "https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/4f01bf01-c9b7-4650-9692-5660a8a93d78.png",
     "attachments/d05a8a10-0875-41b9-895a-9cdb5c0c4137.png": "https://assets.cdn.filesafe.space/KUaMUc8BxyxYui9dVFR1/media/5c5997fb-68fa-4b56-a71b-3a18ea609a49.png"
+  },
+  "class_packs": {
+    "location": "Broken Arrow",
+    "packs": [
+      {
+        "sessions": 4,
+        "price": 75,
+        "expires_days": null,
+        "buy_url": ""
+      },
+      {
+        "sessions": 8,
+        "price": 144,
+        "expires_days": null,
+        "buy_url": ""
+      },
+      {
+        "sessions": 10,
+        "price": 170,
+        "expires_days": 90,
+        "buy_url": "https://team2ndwind.pushpress.com/landing/plans/plan_fa1fcfffab7142/login",
+        "badge": "Most Popular"
+      },
+      {
+        "sessions": 12,
+        "price": 192,
+        "expires_days": null,
+        "buy_url": ""
+      },
+      {
+        "sessions": 20,
+        "price": 300,
+        "expires_days": null,
+        "buy_url": ""
+      }
+    ]
   }
 }

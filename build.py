@@ -346,8 +346,19 @@ def write_ghl_snippet(page, path, root, noindex):
     (d / f"{name}.html").write_text(snippet)
 
 
+def pack_cards():
+    out = []
+    for p in CFG["class_packs"]["packs"]:
+        per = p["price"] / p["sessions"]
+        exp = ('<p class="muted">Expires %d days after purchase.</p>' % p["expires_days"]) if p.get("expires_days") else ''
+        badge = '<span class="badge">%s</span>' % p["badge"] if p.get("badge") else ''
+        btn = ('<a class="btn sm" href="%s" rel="noopener">Buy %d-Session Pack</a>' % (p["buy_url"], p["sessions"])) if p.get("buy_url") else ''
+        out.append('<div class="card accent plan">%s<h3>%d Sessions</h3><div class="price">$%s</div><p class="muted">About $%.2f per session.</p>%s%s</div>' % (badge, p["sessions"], ("%g" % p["price"]), per, exp, btn))
+    return '<div class="grid g3" style="margin-top:28px">' + "".join(out) + '</div>'
+
 def render_tokens(body):
     FAQ_USED.clear()
+    body = body.replace("{{packs}}", pack_cards())
     body = re.sub(r"\{\{faq:(.+?)\}\}", lambda m: faq_block(m.group(1)), body)
     body = re.sub(r"\{\{form:([a-z_]+(?:\?[^}]*)?)\}\}", lambda m: form_embed(m.group(1)), body)
     body = body.replace("{{jotform}}", jotform_embed(CFG["jotform_pause_cancel"]))
