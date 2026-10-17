@@ -336,6 +336,7 @@ def write_ghl_snippet(page, path, root, noindex):
     # GHL: Jotform's embed handler hides the iframe until it resizes; keep the fixed-height iframe visible instead
     body = re.sub(r'<script src="https://cdn\.jotfor\.ms/[^"]*"></script>', '', body)
     body = re.sub(r'<script>window\.jotformEmbedHandler[^<]*</script>', '', body)
+    body = re.sub(r'id="JotFormIFrame-(\d+)"', r'id="t2w-jf-\1"', body)
     snippet = (f'{fonts}\n<style>\n{css}\n</style>\n'
                f'<div class="t2w-ghl" style="background:#0A0A0B">\n{body}\n</div>\n')
     name = slugify(path) if path else "home"
