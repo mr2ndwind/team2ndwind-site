@@ -96,14 +96,14 @@
       {
         "sessions": 20,
         "price": 300,
-        "buy_url": "",
+        "buy_url": "https://team2ndwind.pushpress.com/landing/plans/plan_2630090ed94248/login",
         "expires_months": 6
       },
       {
         "sessions": 50,
         "price": 725,
         "expires_months": 12,
-        "buy_url": "",
+        "buy_url": "https://team2ndwind.pushpress.com/landing/plans/plan_f02fbdb5ca4649/login",
         "badge": "Best Per Session"
       }
     ]
