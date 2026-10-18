@@ -94,12 +94,6 @@
         "expires_months": 6
       },
       {
-        "sessions": 12,
-        "price": 192,
-        "buy_url": "",
-        "expires_months": 6
-      },
-      {
         "sessions": 20,
         "price": 300,
         "buy_url": "",
