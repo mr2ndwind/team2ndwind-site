@@ -104,6 +104,13 @@
         "price": 300,
         "buy_url": "",
         "expires_months": 6
+      },
+      {
+        "sessions": 50,
+        "price": 725,
+        "expires_months": 12,
+        "buy_url": "",
+        "badge": "Best Per Session"
       }
     ]
   }
