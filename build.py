@@ -350,7 +350,7 @@ def pack_cards():
     out = []
     for p in CFG["class_packs"]["packs"]:
         per = p["price"] / p["sessions"]
-        exp = ('<p class="muted">Expires %d days after purchase.</p>' % p["expires_days"]) if p.get("expires_days") else ''
+        exp = ('<p class="muted">Expires %d months after purchase.</p>' % p["expires_months"]) if p.get("expires_months") else ''
         badge = '<span class="badge">%s</span>' % p["badge"] if p.get("badge") else ''
         btn = ('<a class="btn sm" href="%s" rel="noopener">Buy %d-Session Pack</a>' % (p["buy_url"], p["sessions"])) if p.get("buy_url") else ''
         out.append('<div class="card accent plan">%s<h3>%d Sessions</h3><div class="price">$%s</div><p class="muted">About $%.2f per session.</p>%s%s</div>' % (badge, p["sessions"], ("%g" % p["price"]), per, exp, btn))

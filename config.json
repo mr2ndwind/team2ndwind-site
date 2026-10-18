@@ -87,35 +87,23 @@
     "location": "Broken Arrow",
     "packs": [
       {
-        "sessions": 4,
-        "price": 75,
-        "expires_days": null,
-        "buy_url": ""
-      },
-      {
-        "sessions": 8,
-        "price": 144,
-        "expires_days": null,
-        "buy_url": ""
-      },
-      {
         "sessions": 10,
         "price": 170,
-        "expires_days": 90,
         "buy_url": "https://team2ndwind.pushpress.com/landing/plans/plan_fa1fcfffab7142/login",
-        "badge": "Most Popular"
+        "badge": "Most Popular",
+        "expires_months": 6
       },
       {
         "sessions": 12,
         "price": 192,
-        "expires_days": null,
-        "buy_url": ""
+        "buy_url": "",
+        "expires_months": 6
       },
       {
         "sessions": 20,
         "price": 300,
-        "expires_days": null,
-        "buy_url": ""
+        "buy_url": "",
+        "expires_months": 6
       }
     ]
   }
